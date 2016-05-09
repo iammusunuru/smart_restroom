@@ -81,6 +81,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,'templates')
+)
+
 
 conf = {}
 conf['mongo_uri'] = os.environ.get("mongo_uri","")
