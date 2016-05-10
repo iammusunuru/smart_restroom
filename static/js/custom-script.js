@@ -30,7 +30,7 @@ $(document).ready(function(){
             console.log(resp["door"]);
             console.log(resp.door.length);
             for(var i=0;i<resp.door.length;i++){
-                if(resp.door[i].status === 1){
+                if(resp.door[i].status === 0){
                     vacStatus++;
                 }
             }
@@ -57,7 +57,7 @@ $(document).ready(function(){
         getInitialValues();
     });
 
-   
+
 
 });
 

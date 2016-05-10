@@ -373,3 +373,7 @@ table.dataTable thead .sorting:after {
     position: absolute;
     z-index: 1000;
 }
+
+select{
+    width:43%!important;
+}
