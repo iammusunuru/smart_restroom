@@ -12,7 +12,7 @@ $(document).ready(function(){
         });
     };
 
-    getInitialValues();
+    //getInitialValues();
 
     function successFunction(data){
         window.clearInterval(refreshId);
