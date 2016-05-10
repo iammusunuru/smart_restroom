@@ -63,5 +63,5 @@ def noti_config(request):
         return HttpResponse("success")
     except:
         return HttpResponse("failed")
-    
+
 

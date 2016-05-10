@@ -464,9 +464,9 @@
 
                         <div class="form-group">
                             <label for="mobileNumber">Mobile Number</label>
-                            <input type="email" class="form-control" id="mobileNumber">
+                            <input type="text" class="form-control" id="mobileNumber">
                         </div>
-                        <button type="button" class="btn btn-primary">Send Notification</button>
+                        <button type="button" id="notify" class="btn btn-primary">Send Notification</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -541,6 +541,36 @@
     function errorFunction(data){
         console.log(data);
     }
+
+    $("#notify").click(function(){
+        if($("#mobileNumber").val() !== "" && $("#mobileNumber").val() !== null){
+            $.ajax({
+                url: url+"/washroom",
+                type:"GET",
+                success: function(data){
+                    var dataObj = {
+                        "restroom_id":data,
+                        "type":"room",
+                        "telno":$("#mobileNumber").val()
+                };
+                    $.ajax({
+                        url: url+"/noticonf",
+                        type:"POST",
+                        data:dataObj,
+                        success: function(data){
+                            alert("done");
+                        },
+                        error: function(){
+                            alert("failed");
+                        }
+                    });
+                },
+                error: function(){
+                    alert("failed");
+                }
+            });
+        }
+    })
 
 </script>
 
