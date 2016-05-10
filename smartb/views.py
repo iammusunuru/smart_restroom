@@ -64,4 +64,8 @@ def noti_config(request):
     except:
         return HttpResponse("failed")
 
-
+@csrf_exempt
+def voice(request):
+    msg = request.POST.get("msg","")
+    mqtt_thread.send_voice(msg)
+    return HttpResponse("success")

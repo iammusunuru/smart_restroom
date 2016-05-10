@@ -13,5 +13,6 @@ urlpatterns = patterns('',
     url(r'^configure', 'smartb.views.send_sensor', name='send_sensor'),
     url(r'^noticonf', 'smartb.views.noti_config', name='noticonfig'),
     url(r'^washroom', 'smartb.views.get_active_washroom', name='active_room'),
+    url(r'^voice', 'smartb.views.voice', name='voice'),
     url(r'^admin/', include(admin.site.urls)),
 )
