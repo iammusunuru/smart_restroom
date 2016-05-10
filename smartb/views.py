@@ -3,6 +3,8 @@ from django.shortcuts import render_to_response
 from smartb.db_layer import db_layer
 from django.http import HttpResponse
 import json
+from django.views.decorators.csrf import csrf_exempt
+from smartb import mqtt_thread
 
 # Create your views here.
 
@@ -25,3 +27,25 @@ def loaddata(request):
 def load_html(request):
     page_name = request.GET.get("name","")
     return render_to_response(page_name+".html")
+
+
+"sends what ever got from the ui"
+#TODO washroom id support
+@csrf_exempt
+def send_sensor(request):
+    di = {}
+    try:
+        for key, value in request.POST.items():
+            di[key] = value
+        mqtt_thread.send_message(str(di))
+        return HttpResponse("success")
+    except:
+        return HttpResponse("failed")
+
+
+def get_active_washroom(request):
+    db = db_layer("iot_data")
+    data = db.get_data({"tag":"real_time_data"})[0]
+    return HttpResponse(data["data"]["restroom_id"])
+
+

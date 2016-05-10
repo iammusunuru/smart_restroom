@@ -10,5 +10,7 @@ urlpatterns = patterns('',
     url(r'^$', 'smartb.views.home', name='home'),
     url(r'^loaddata', 'smartb.views.loaddata', name='loaddata'),
      url(r'^template', 'smartb.views.load_html', name='loadhtml'),
+    url(r'^configure', 'smartb.views.send_sensor', name='send_sensor'),
+    url(r'^washroom', 'smartb.views.get_active_washroom', name='active_room'),
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -6,7 +6,7 @@ import db_layer
 from smartbathroom.settings import mqtt_host
 
 topic = "ui"
-publish_topic = ""
+publish_topic = "sensor_control"
 db = db_layer.db_layer("iot_data")
 def on_connect(client, userdata, flags, rc):
     print("[MQTT]Connected with result code "+str(rc))
@@ -34,4 +34,7 @@ def mqtt_function():
 def start_mqtt_listener():
     t = threading.Thread(name='mqtt_thread', target=mqtt_function)
     t.start()
+
+
+
 
