@@ -30,6 +30,9 @@ client.connect(mqtt_host, 1883, 60)
 def send_message(msg):
     client.publish(publish_topic, msg)
 
+def send_voice(msg):
+    client.publish("voice",msg)
+
 def mqtt_function():
     client.loop_forever()
 

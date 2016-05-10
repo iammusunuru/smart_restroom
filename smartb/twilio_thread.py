@@ -32,7 +32,7 @@ def on_message(client, userdata, msg):
                 db.remove({"_id":i["_id"]})
 
         for i in data["door"]:
-            if str(i["status"]) == "1":
+            if str(i["status"]) == "0":
                 user_list = db.get_data({"restroom_id":str(id), "type" :"room"})
                 print user_list
                 for j in user_list:
@@ -45,7 +45,7 @@ def on_message(client, userdata, msg):
 def send_text(number,msg):
     client = TwilioRestClient(settings.account_sid, settings.auth_token)
     message = client.messages.create(body=msg,
-        to=number,    # Replace with your phone number
+        to="+1"+number,    # Replace with your phone number
         from_=settings.twilio_number) # Replace with your Twilio number
     return message.sid
 
