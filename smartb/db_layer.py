@@ -28,3 +28,6 @@ class db_layer:
 
     def update_data(self,query, condition):
         self.coll.update_one(query, condition)
+
+    def remove(self,cond):
+        self.coll.remove(cond)

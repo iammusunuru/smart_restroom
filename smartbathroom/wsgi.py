@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
 
 import os
-from smartb import mqtt_thread
+from smartb import mqtt_thread, twilio_thread
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "smartbathroom.settings")
 
@@ -16,3 +16,4 @@ from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
 mqtt_thread.start_mqtt_listener()
+twilio_thread.start_mqtt_listener()

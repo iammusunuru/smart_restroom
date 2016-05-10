@@ -25,6 +25,8 @@ client.on_connect = on_connect
 client.on_message = on_message
 client.connect(mqtt_host, 1883, 60)
 
+
+
 def send_message(msg):
     client.publish(publish_topic, msg)
 

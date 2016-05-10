@@ -52,3 +52,16 @@ def get_active_washroom(request):
 
 
 
+@csrf_exempt
+def noti_config(request):
+    try:
+        restroom_id = request.POST.get("restroom_id","")
+        type = request.POST.get("type","")
+        telno = request.POST.get("telno","")
+        db = db_layer("noti")
+        db.set_data({"restroom_id":restroom_id, "type":type, "telno": telno})
+        return HttpResponse("success")
+    except:
+        return HttpResponse("failed")
+    
+
