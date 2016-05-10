@@ -4,7 +4,7 @@ $(document).ready(function(){
     var refreshId;
     function getInitialValues(){
         $.ajax({
-            url: url+"/loaddata/?restroom_id="+$("#roomSelect").val(),
+            url: "/loaddata/?restroom_id="+$("#roomSelect").val(),
             type:"GET",
             success: successFunction,
             error:errorFunction

@@ -403,7 +403,7 @@
         var url="http://localhost:8000";
         var wId;
         $.ajax({
-            url: url+"/washroom",
+            url: "/washroom",
             type:"GET",
             success: function(data){
                 wId = data;
@@ -453,7 +453,7 @@
               "msg":$("#comment").val()
             };
             $.ajax({
-                url: url+"/voice",
+                url: "/voice",
                 type:"POST",
                 data:dataObj,
                 success: function(){
@@ -482,7 +482,7 @@
                     "telno":$("#mobileNum").val()
                 };
                 $.ajax({
-                    url: url+"/noticonf",
+                    url: "/noticonf",
                     type:"POST",
                     data:dataObj,
                     success: postSuccess,
@@ -494,7 +494,7 @@
 
         function postCall(dataObj){
             $.ajax({
-                url: url+"/configure",
+                url: "/configure",
                 type:"POST",
                 data:dataObj,
                 success: postSuccess,

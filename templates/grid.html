@@ -487,11 +487,11 @@
     var refreshId;
     function getInitialValues(){
         $.ajax({
-            url: url+"/washroom",
+            url: "/washroom",
             type:"GET",
             success: function(data){
                 $.ajax({
-                    url: url+"/loaddata/?restroom_id="+data,
+                    url: "/loaddata/?restroom_id="+data,
                     type:"GET",
                     success: successFunction,
                     error:errorFunction
@@ -535,7 +535,7 @@
     $("#notify").click(function(){
         if($("#mobileNumber").val() !== "" && $("#mobileNumber").val() !== null){
             $.ajax({
-                url: url+"/washroom",
+                url: "/washroom",
                 type:"GET",
                 success: function(data){
                     var dataObj = {
@@ -544,7 +544,7 @@
                         "telno":$("#mobileNumber").val()
                 };
                     $.ajax({
-                        url: url+"/noticonf",
+                        url: "/noticonf",
                         type:"POST",
                         data:dataObj,
                         success: function(data){
