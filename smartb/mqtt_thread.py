@@ -17,7 +17,7 @@ def on_message(client, userdata, msg):
     data = {}
     if msg.topic == topic:
         data["data"] = eval(msg.payload)
-        print data
+        #print data
         db.set_realtime_data(data)
 
 client = mqtt.Client()
