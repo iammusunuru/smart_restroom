@@ -36,7 +36,12 @@ $(document).ready(function(){
             }
             $("#tempIndex").html(resp.temp);
             $("#humIndex").html(resp.humidity);
-            $('#humidity').html(resp.service);
+            if(resp.service == 1){
+                $('#humidity').html("Service Needed");
+            }else{
+                $('#humidity').html("OK");
+            }
+
             $("#vacancy").html(vacStatus);
             $("#roomNum").html(resp.door.length);
             $("#persons").html(resp.person_rate);
