@@ -4,6 +4,8 @@ import time
 import paho.mqtt.client as mqtt
 import db_layer
 from smartbathroom.settings import mqtt_host
+from smartbathroom import settings
+from twilio.rest import TwilioRestClient
 
 topic = "ui"
 publish_topic = "sensor_control"
@@ -41,7 +43,11 @@ def on_message(client, userdata, msg):
 
 
 def send_text(number,msg):
-    print number+" "+msg
+    client = TwilioRestClient(settings.account_sid, settings.auth_token)
+    message = client.messages.create(body=msg,
+        to=number,    # Replace with your phone number
+        from_=settings.twilio_number) # Replace with your Twilio number
+    return message.sid
 
 client = mqtt.Client()
 client.on_connect = on_connect
