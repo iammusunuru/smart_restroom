@@ -100,3 +100,7 @@ conf = {}
 conf['mongo_uri'] = os.environ.get("mongo_uri","")
 conf['dbname'] = os.environ.get("dbname","")
 mqtt_host = os.environ.get("mqtt_host","")
+account_sid = os.environ.get("account_sid","")
+auth_token = os.environ.get("auth_token","")
+twilio_number = os.environ.get("twilio_number","")
+
