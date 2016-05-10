@@ -1,32 +1,48 @@
 $(document).ready(function(){
 
-    var url="http://localhost:3000";
+    var url="http://localhost:8000";
     var refreshId;
     function getInitialValues(){
-        console.log($("#roomSelect").val());
         $.ajax({
-            url: url+"/initialData/"+$("#roomSelect").val(),
+            url: url+"/loaddata/?restroom_id="+$("#roomSelect").val(),
             type:"GET",
             success: successFunction,
             error:errorFunction
         });
     };
 
-    //getInitialValues();
+    getInitialValues();
 
     function successFunction(data){
         window.clearInterval(refreshId);
-            var data ={
-                "temperature" : 71,
-                "humidity": 34,
-                "vacancy" : 2,
-                "persons": 3
-            };
-        $("#tempIndex").html(Math.floor((Math.random() * 10) + 1));
-        $('#humidity').html(Math.floor((Math.random() * 10) + 1));
-        $("#vacancy").html(Math.floor((Math.random() * 10) + 1));
-        $("#persons").html(Math.floor((Math.random() * 10) + 1));
-         refreshId = setInterval(getData,10000);
+        var vacStatus =0;
+        if(data === ""){
+            $("#tempIndex").html("N");
+            $("#humIndex").html("A");
+            $('#humidity').html("N/A");
+            $("#vacancy").html("N/A");
+            $("#roomNum").html("N/A");
+            $("#persons").html("N/A");
+            refreshId = setInterval(getData,10000);
+        }else{
+            var resp = JSON.parse(data);
+            console.log(resp);
+            console.log(resp["door"]);
+            console.log(resp.door.length);
+            for(var i=0;i<resp.door.length;i++){
+                if(resp.door[i].status === 1){
+                    vacStatus++;
+                }
+            }
+            $("#tempIndex").html(resp.temp);
+            $("#humIndex").html(resp.humidity);
+            $('#humidity').html(resp.service);
+            $("#vacancy").html(vacStatus);
+            $("#roomNum").html(resp.door.length);
+            $("#persons").html(resp.person_rate);
+            refreshId = setInterval(getData,10000);
+        }
+
     }
 
     function getData() {
@@ -40,6 +56,8 @@ $(document).ready(function(){
     $( "#roomSelect" ).change(function() {
         getInitialValues();
     });
+
+   
 
 });
 

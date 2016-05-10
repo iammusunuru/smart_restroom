@@ -364,3 +364,12 @@ table.dataTable thead .sorting:after {
 .page-header{
     margin: 0px 0 20px!important;
 }
+
+.configuration>.col-lg-12{
+    padding:3% 0;
+}
+
+#alertRow{
+    position: absolute;
+    z-index: 1000;
+}

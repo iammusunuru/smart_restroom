@@ -283,7 +283,7 @@
                         <a href="templates/?name=index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="templates/?name=tables"><i class="fa fa-table fa-fw"></i> Settings</a>
+                        <a href="templates/?name=tables"><i class="fa fa-table fa-fw"></i> Configuration</a>
                     </li>
 
 
@@ -315,8 +315,8 @@
                         </div>
                         <div class="pull-right dropdown custom-dropdown">
                             <select id="roomSelect" class="form-control">
-                                <option value="room1">Restroom 1</option>
-                                <option value="room2">Restroom 2</option>
+                                <option value="1">Restroom 1</option>
+                                <option value="2">Restroom 2</option>
                             </select>
 
                         </div>
@@ -339,8 +339,8 @@
                                 <i class="fa fa-sun-o fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div id="tempIndex" class="huge">79</div>
-                                <div>Temperature!</div>
+                                <div  class="huge"><span id="tempIndex">N</span> / <span id="humIndex">A</span></div>
+                                <div>Temperature/Humidity</div>
                             </div>
                         </div>
                     </div>
@@ -361,7 +361,7 @@
                                 <i class="fa fa-cloud fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div id="humidity" class="huge">37</div>
+                                <div id="humidity" class="huge">N/A</div>
                                 <div>Humidity</div>
                             </div>
                         </div>
@@ -383,8 +383,8 @@
                                 <i class="fa fa-tasks fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div id="vacancy" class="huge">12</div>
-                                <div>Vacant rooms</div>
+                                <div id="vacancy" class="huge">N/A</div>
+                                <div>vacant out of <span id="roomNum">N/A</span></div>
                             </div>
                         </div>
                     </div>
@@ -405,7 +405,7 @@
                                 <i class="fa fa-support fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div id="persons" class="huge">13</div>
+                                <div id="persons" class="huge">N/A</div>
                                 <div>Persons using room</div>
                             </div>
                         </div>
